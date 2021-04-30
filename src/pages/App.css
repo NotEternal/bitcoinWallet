@@ -7,7 +7,7 @@
   color: var(--white);
   background-color: var(--dark);
 
-  --color: var(--white);
+    --color: var(--white);
   --error-color: var(--red);
   --background-color: var(--dark);
   --hover-background: var(--black-transparent-1);
@@ -18,7 +18,7 @@
 }
 
 .App.light {
-  color: var(--black);
+            color: var(--black);
   background-color: var(--white);
 
   --color: var(--black);
