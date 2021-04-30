@@ -20,13 +20,17 @@ export const App = () => {
     );
   }
 
+
+
+
   // Default theme ================================
 
   const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
   const localStorageDark = window.localStorage.getItem('dark');
   const darkThemeIsActive = localStorageDark
-    ? localStorageDark === 'true'
-    : prefersDarkScheme.matches;
+    
+  ? localStorageDark === 'true'
+    :   prefersDarkScheme.matches
   const [isDark, setIsDark] = useState(darkThemeIsActive);
 
   // Default page =================================
@@ -44,6 +48,8 @@ export const App = () => {
     const wallets = JSON.parse(strWallets);
     const btcWallets = wallets.btc;
 
+
+    
     setHasAnyWallet(btcWallets.length ? true : false);
   }, [setHasAnyWallet]);
 
@@ -58,6 +64,8 @@ export const App = () => {
               isDark={isDark}
             />
 
+
+
             <div className="App-body__page-wrapper">
               {activePage === 'wallet' && <Wallets />}
               {activePage === 'send' && <Send />}
@@ -66,7 +74,7 @@ export const App = () => {
               {hasAnyWallet && <ChangeWallet />}
             </div>
           </>
-        </ErrorBoundary>
+              </ErrorBoundary>
       </div>
     </div>
   );
