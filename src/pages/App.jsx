@@ -9,8 +9,6 @@ import { Send } from './Send';
 export const App = () => {
   // Default settings =============================
 
-
-
   const hasLocalSettings = window.localStorage.getItem('wallets');
 
   if (!hasLocalSettings) {
@@ -22,15 +20,13 @@ export const App = () => {
     );
   }
 
-
   // Default theme ================================
 
   const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
   const localStorageDark = window.localStorage.getItem('dark');
   const darkThemeIsActive = localStorageDark
     ? localStorageDark === 'true'
-    : 
-    prefersDarkScheme.matches;
+    : prefersDarkScheme.matches;
   const [isDark, setIsDark] = useState(darkThemeIsActive);
 
   // Default page =================================
@@ -41,8 +37,7 @@ export const App = () => {
 
   // Checking wallets =============================
 
-  const [hasAnyWallet, setHasAnyWallet] = 
-    useState(false);
+  const [hasAnyWallet, setHasAnyWallet] = useState(false);
 
   useEffect(() => {
     const strWallets = window.localStorage.getItem('wallets') || '{}';
@@ -50,7 +45,7 @@ export const App = () => {
     const btcWallets = wallets.btc;
 
     setHasAnyWallet(btcWallets.length ? true : false);
-  }, [setHasAnyWallet])
+  }, [setHasAnyWallet]);
 
   return (
     <div className={`App ${isDark ? '' : 'light'}`}>
@@ -59,12 +54,12 @@ export const App = () => {
           <>
             <Header
               setActivePage={setActivePage}
-                setIsDark={setIsDark}
+              setIsDark={setIsDark}
               isDark={isDark}
             />
 
             <div className="App-body__page-wrapper">
-                {activePage === 'wallet' && <Wallets />}
+              {activePage === 'wallet' && <Wallets />}
               {activePage === 'send' && <Send />}
 
               {activePage === 'changeWallet' && <ChangeWallet />}
@@ -74,5 +69,5 @@ export const App = () => {
         </ErrorBoundary>
       </div>
     </div>
-  )
+  );
 };
