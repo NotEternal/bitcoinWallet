@@ -1,0 +1,31 @@
+.wallets {
+  padding: 2rem;
+}
+
+.wallet__item {
+  margin: 1.5em 0;
+  padding: 1em;
+  border-radius: 1em;
+  box-shadow: inset 0px 0px 0.5rem var(--transparent-3);
+}
+
+.wallet__address-wrapper {
+  margin: 0.5rem;
+}
+
+.wallet__balance-wrapper {
+  margin: 0.5rem;
+}
+
+.wallet__address-wrapper b,
+.wallet__balance-wrapper b {
+  font-size: 1.1em;
+}
+
+.wallet__address {
+  /*  */
+}
+
+.wallet__balance {
+  /*  */
+}

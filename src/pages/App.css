@@ -1,0 +1,45 @@
+.App {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  color: var(--white);
+  background-color: var(--black);
+
+  --color: var(--white);
+  --error-color: var(--red);
+  --background-color: var(--dark);
+  --hover-background: var(--dark);
+  --transparent-1: var(--white-transparent-1);
+  --transparent-2: var(--white-transparent-2);
+  --transparent-3: var(--white-transparent-3);
+  --general-shadow: 0px 0px 60px 1px var(--transparent-3);
+}
+
+.App.light {
+  color: var(--black);
+  background-color: var(--white);
+
+  --color: var(--black);
+  --background-color: var(--white);
+  --hover-background: var(--light);
+  --transparent-1: var(--black-transparent-1);
+  --transparent-2: var(--black-transparent-2);
+  --transparent-3: var(--black-transparent-3);
+  --general-shadow: 0px 0px 60px 1px var(--transparent-3);
+}
+
+.App-body {
+  width: 45%;
+  min-width: 320px;
+  max-width: 32em;
+  min-height: 36em;
+}
+
+.App-body__page-wrapper {
+  border-radius: 2.2rem;
+  -webkit-box-shadow: var(--general-shadow);
+  -moz-box-shadow: var(--general-shadow);
+  box-shadow: var(--general-shadow);
+}

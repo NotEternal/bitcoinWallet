@@ -1,0 +1,8 @@
+.send {
+  padding: 2rem;
+}
+
+.send__form-wrapper {
+  display: flex;
+  flex-direction: column;
+}
