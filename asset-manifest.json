@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/NotEternal/cryptoWallet/static/css/main.f624f178.chunk.css",
+    "main.js": "/NotEternal/cryptoWallet/static/js/main.f267c9d4.chunk.js",
+    "main.js.map": "/NotEternal/cryptoWallet/static/js/main.f267c9d4.chunk.js.map",
+    "runtime-main.js": "/NotEternal/cryptoWallet/static/js/runtime-main.fe292c85.js",
+    "runtime-main.js.map": "/NotEternal/cryptoWallet/static/js/runtime-main.fe292c85.js.map",
+    "static/js/2.e3207ed0.chunk.js": "/NotEternal/cryptoWallet/static/js/2.e3207ed0.chunk.js",
+    "static/js/2.e3207ed0.chunk.js.map": "/NotEternal/cryptoWallet/static/js/2.e3207ed0.chunk.js.map",
+    "index.html": "/NotEternal/cryptoWallet/index.html",
+    "static/css/main.f624f178.chunk.css.map": "/NotEternal/cryptoWallet/static/css/main.f624f178.chunk.css.map",
+    "static/js/2.e3207ed0.chunk.js.LICENSE.txt": "/NotEternal/cryptoWallet/static/js/2.e3207ed0.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fe292c85.js",
+    "static/js/2.e3207ed0.chunk.js",
+    "static/css/main.f624f178.chunk.css",
+    "static/js/main.f267c9d4.chunk.js"
+  ]
+}
