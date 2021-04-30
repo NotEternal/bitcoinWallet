@@ -8,6 +8,7 @@
   -webkit-box-shadow: var(--general-shadow);
   -moz-box-shadow: var(--general-shadow);
   box-shadow: var(--general-shadow);
+  border: 0.1em solid var(--brand-color);
 }
 
 .header__nav-list {
@@ -24,8 +25,7 @@
   font-size: 1.1em;
   border: none;
   border-radius: 1em;
-  box-shadow: inset 0px 0px 0.5rem var(--transparent-3);
-  background-color: transparent;
+  background-color: var(--transparent-1);
   color: var(--color);
   transition: 0.2s;
 }

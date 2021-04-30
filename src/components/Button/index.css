@@ -6,7 +6,7 @@
   border: none;
   border-radius: 1em;
   letter-spacing: 0.08rem;
-  box-shadow: inset 0px 0px 0.2rem var(--transparent-2);
+  border: 0.1em solid var(--brand-color);
   background-color: transparent;
   color: var(--color);
   transition: 0.2s;

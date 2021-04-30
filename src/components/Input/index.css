@@ -4,13 +4,14 @@
   border-radius: 0.3em;
   border: none;
   border-radius: 1em;
-  box-shadow: inset 0px 0px 0.5rem var(--transparent-3);
-  background-color: transparent;
+  border: 0.1em solid var(--transparent-3);
+  background-color: var(--transparent-1);
   color: var(--color);
   transition: 0.2s;
 }
 
 .input:hover,
 .input:focus {
+  border-color: var(--brand-color);
   background-color: var(--hover-background);
 }

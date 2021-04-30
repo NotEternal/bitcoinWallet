@@ -23,10 +23,12 @@
 
 html {
   --black: #000;
-  --dark: #111;
+  --dark: #0d0d0c;
+  --light-dark: #1c1c1c;
   --white: #fff;
   --light: #f0f0f0;
   --red: #ff5959;
+  --brand-color: #2166b6;
 
   --black-transparent-1: #00000080;
   --black-transparent-2: #00000060;
