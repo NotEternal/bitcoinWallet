@@ -1,25 +1,21 @@
 .button {
   position: relative;
-  min-height: 3.3rem;
+  min-height: 3.4em;
   margin: 1em 0;
   padding: 1em 2em;
   border: none;
   border-radius: 1em;
   letter-spacing: 0.08rem;
-  border: 0.1em solid var(--brand-color);
-  background-color: transparent;
+  border: var(--border);
+  box-shadow: inset var(--general-shadow);
+  background-color: var(--background-color);
   color: var(--color);
-  transition: 0.2s;
-}
-
-.button:hover {
-  background-color: var(--hover-background);
 }
 
 .button.disable {
   cursor: not-allowed;
   pointer-events: none;
-  background-color: var(--hover-background);
+  opacity: 0.6;
 }
 
 .button__loader {

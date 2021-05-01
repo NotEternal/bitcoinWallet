@@ -10,7 +10,7 @@ export const Error = (props) => {
 
   return (
     <div className="errorPage">
-      <h2>Error: {name}</h2>
+      <h2>ERROR: {name}</h2>
       <p>{message}</p>
     </div>
   );

@@ -19,13 +19,14 @@ export const Send = () => {
 
   return (
     <div className="send">
-      <h2>Send</h2>
-
       <div className="send__form-wrapper">
-        <Input type="address" />
-        <Input type="amount" />
+        <div className="send__input-wrapper">
+          <Input type="address" />
+          <Input type="amount" />
+        </div>
+
         <Button isLoading={isLoading} onClick={submitTx}>
-          Submit
+          SEND
         </Button>
       </div>
     </div>

@@ -1,0 +1,49 @@
+.navigation {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 2.5rem;
+  background-color: var(--background-color);
+  box-shadow: var(--general-shadow);
+  -moz-box-shadow: var(--general-shadow);
+  -webkit-box-shadow: var(--general-shadow);
+}
+
+.navigation__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.navigation__button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3em;
+  height: 3em;
+  margin-right: 2vw;
+  padding: 0.2em;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.navigation__theme-button {
+  width: 3.2em;
+  height: 3.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.navigation__img {
+  display: inline-block;
+  width: 80%;
+  height: 80%;
+}

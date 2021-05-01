@@ -1,8 +1,16 @@
 .send {
+  height: inherit;
   padding: 2rem;
 }
 
 .send__form-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.send__input-wrapper {
   display: flex;
   flex-direction: column;
 }
