@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import { ErrorBoundary } from '../components/ErrorBoundary';
-import { ChangeWallet } from './ChangeWallet';
-import { Header } from '../components/Header';
+import { Settings } from './Settings';
+import { Navigation } from '../components/Navigation';
 import { Wallets } from './Wallets';
 import { Send } from './Send';
 
@@ -44,7 +44,7 @@ export const App = () => {
     const wallets = JSON.parse(strWallets);
     const btcWallets = wallets.btc;
 
-    setHasAnyWallet(btcWallets.length ? true : false);
+    setHasAnyWallet(!!btcWallets.length);
   }, [setHasAnyWallet]);
 
   return (
@@ -52,19 +52,20 @@ export const App = () => {
       <div className="App-body">
         <ErrorBoundary>
           <>
-            <Header
-              setActivePage={setActivePage}
-              setIsDark={setIsDark}
-              isDark={isDark}
-            />
-
             <div className="App-body__page-wrapper">
               {activePage === 'wallet' && <Wallets />}
               {activePage === 'send' && <Send />}
-
-              {activePage === 'changeWallet' && <ChangeWallet />}
-              {hasAnyWallet && <ChangeWallet />}
+              {activePage === 'settings' && <Settings />}
+              {hasAnyWallet && <Settings />}
             </div>
+
+            <header>
+              <Navigation
+                setActivePage={setActivePage}
+                setIsDark={setIsDark}
+                isDark={isDark}
+              />
+            </header>
           </>
         </ErrorBoundary>
       </div>

@@ -2,7 +2,7 @@ import './index.css';
 import Coin from '../../common/Coin';
 import { Button } from '../../components/Button';
 
-export const ChangeWallet = () => {
+export const Settings = () => {
   const handleCreate = () => {
     Coin.BTC.createWallet();
   };
@@ -13,11 +13,16 @@ export const ChangeWallet = () => {
     });
   };
 
+  const handleLogout = () => {
+    //
+  };
+
   return (
-    <div className="change-wallet">
-      <h2>Wallet actions</h2>
+    <div className="settings">
+      <h2>Settings</h2>
       <Button onClick={handleCreate}>Create</Button>{' '}
-      <Button onClick={handleRestore}>Restore</Button>
+      <Button onClick={handleRestore}>Restore</Button>{' '}
+      <Button onClick={handleLogout}>Logout</Button>
     </div>
   );
 };

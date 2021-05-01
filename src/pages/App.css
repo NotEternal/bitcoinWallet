@@ -4,43 +4,47 @@
   align-items: center;
   justify-content: center;
   transition: 0.2s;
+  box-shadow: 0 0.3em 1em var(--black);
   color: var(--white);
-  background-color: var(--dark);
+  background-color: var(--light-dark);
+  background: radial-gradient(circle, var(--light-dark) 0%, var(--black) 100%);
+  background: -moz-radial-gradient(
+    circle,
+    var(--light-dark) 0%,
+    var(--black) 100%
+  );
+  background: -webkit-radial-gradient(
+    circle,
+    var(--light-dark) 0%,
+    var(--black) 100%
+  );
 
   --color: var(--white);
   --error-color: var(--red);
   --background-color: var(--dark);
-  --hover-background: var(--black-transparent-1);
-  --transparent-1: var(--black-transparent-1);
-  --transparent-2: var(--black-transparent-2);
-  --transparent-3: var(--black-transparent-3);
-  --general-shadow: 0px 0px 60px 1px var(--black);
 }
 
 .App.light {
+  box-shadow: 0 0.3em 1em var(--white);
   color: var(--black);
   background-color: var(--white);
 
   --color: var(--black);
   --background-color: var(--white);
-  --hover-background: var(--black-transparent-3);
-  --transparent-1: var(--white-transparent-1);
-  --transparent-2: var(--white-transparent-2);
-  --transparent-3: var(--white-transparent-3);
-  --general-shadow: 0px 0px 60px 1px var(--transparent-3);
 }
 
 .App-body {
-  width: 45%;
+  width: 50%;
   min-width: 320px;
-  max-width: 32em;
-  min-height: 36em;
+  max-width: 34em;
 }
 
 .App-body__page-wrapper {
-  border-radius: 2.2rem;
-  border: 0.1em solid var(--brand-color);
-  -webkit-box-shadow: var(--general-shadow);
-  -moz-box-shadow: var(--general-shadow);
-  box-shadow: var(--general-shadow);
+  min-height: 24em;
+  margin-bottom: 2.2em;
+  border-radius: 2.5rem;
+  background-color: var(--dark);
+  box-shadow: 0 0.2em 2.2em 0.1em var(--black);
+  -moz-box-shadow: 0 0.2em 2.2em 0.1em var(--black);
+  -webkit-box-shadow: 0 0.2em 2.2em 0.1em var(--black);
 }
