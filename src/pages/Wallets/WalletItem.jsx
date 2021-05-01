@@ -1,5 +1,5 @@
 export const WalletItem = (props) => {
-  const { type, address, balance, shortAddress } = props;
+  const { ticker, address, balance, shortAddress } = props;
 
   const partOfTheAddress =
     address.substr(0, 4) + // 4 chars
@@ -19,20 +19,18 @@ export const WalletItem = (props) => {
   };
 
   return (
-    <div className="wallet__item">
-      <p className="wallet__address-wrapper">
-        <b>Address:</b>{' '}
-        <span className="wallet__address">
-          {shortAddress ? partOfTheAddress : address}
-        </span>
+    <div className="wallet-item">
+      <p className="wallet-item__header">
+        <span className="wallet-item__ticker">{ticker.toUpperCase()}</span>{' '}
+        <div className="wallet-item__balance-wrapper">
+          <span className="wallet-item__crypto">{fixBalance()}</span>
+          <span className="wallet-item__fiat">{fixBalance()}</span>
+        </div>
       </p>
 
-      <p className="wallet__balance-wrapper">
-        <b>Balance:</b>{' '}
-        <span>
-          {fixBalance()} {type.toUpperCase()}
-        </span>
-      </p>
+      <span className="wallet-item__address">
+        {shortAddress ? partOfTheAddress : address}
+      </span>
     </div>
   );
 };

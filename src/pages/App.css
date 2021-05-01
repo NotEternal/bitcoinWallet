@@ -3,8 +3,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: 0.2s;
-  box-shadow: 0 0.3em 1em var(--black);
   color: var(--white);
   background-color: var(--light-dark);
   background: radial-gradient(circle, var(--light-dark) 0%, var(--black) 100%);
@@ -22,15 +20,26 @@
   --color: var(--white);
   --error-color: var(--red);
   --background-color: var(--dark);
+  --general-background-color: var(--light-dark);
+  --general-shadow: 0 0.2em 1.8em var(--black);
+  --border: 0.1em solid var(--dark);
 }
 
 .App.light {
-  box-shadow: 0 0.3em 1em var(--white);
   color: var(--black);
   background-color: var(--white);
+  background: radial-gradient(circle, var(--white) 0%, var(--gray) 100%);
+  background: -moz-radial-gradient(circle, var(--white) 0%, var(--gray) 100%);
+  background: -webkit-radial-gradient(
+    circle,
+    var(--white) 0%,
+    var(--gray) 100%
+  );
 
   --color: var(--black);
-  --background-color: var(--white);
+  --background-color: var(--light);
+  --general-shadow: 0 0.2em 1.5em 0.1em var(--dark-light);
+  --border: 0.1em solid var(--gray);
 }
 
 .App-body {
@@ -40,11 +49,11 @@
 }
 
 .App-body__page-wrapper {
-  min-height: 24em;
-  margin-bottom: 2.2em;
+  height: 28em;
+  margin-bottom: 2.4em;
   border-radius: 2.5rem;
-  background-color: var(--dark);
-  box-shadow: 0 0.2em 2.2em 0.1em var(--black);
-  -moz-box-shadow: 0 0.2em 2.2em 0.1em var(--black);
-  -webkit-box-shadow: 0 0.2em 2.2em 0.1em var(--black);
+  background-color: var(--background-color);
+  box-shadow: var(--general-shadow);
+  -moz-box-shadow: var(--general-shadow);
+  -webkit-box-shadow: var(--general-shadow);
 }

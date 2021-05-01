@@ -4,10 +4,10 @@
   align-items: center;
   justify-content: space-between;
   border-radius: 2.5rem;
-  background-color: var(--dark);
-  box-shadow: 0 0.2em 2.2em 0.1em var(--black);
-  -moz-box-shadow: 0 0.2em 2.2em 0.1em var(--black);
-  -webkit-box-shadow: 0 0.2em 2.2em 0.1em var(--black);
+  background-color: var(--background-color);
+  box-shadow: var(--general-shadow);
+  -moz-box-shadow: var(--general-shadow);
+  -webkit-box-shadow: var(--general-shadow);
 }
 
 .navigation__list {
@@ -32,8 +32,11 @@
 }
 
 .navigation__theme-button {
-  width: 3em;
-  height: 3em;
+  width: 3.2em;
+  height: 3.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   border-radius: 50%;
   background-color: transparent;
@@ -41,6 +44,6 @@
 
 .navigation__img {
   display: inline-block;
-  width: 70%;
-  height: 70%;
+  width: 80%;
+  height: 80%;
 }

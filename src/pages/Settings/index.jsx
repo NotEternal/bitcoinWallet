@@ -4,13 +4,13 @@ import { Button } from '../../components/Button';
 
 export const Settings = () => {
   const handleCreate = () => {
-    Coin.BTC.createWallet();
+    // Coin.BTC.createWallet();
   };
 
   const handleRestore = () => {
-    Coin.BTC.restoreWallet({
-      mnemonic: '',
-    });
+    // Coin.BTC.restoreWallet({
+    //   mnemonic: '',
+    // });
   };
 
   const handleLogout = () => {
@@ -19,7 +19,7 @@ export const Settings = () => {
 
   return (
     <div className="settings">
-      <h2>Settings</h2>
+      <h2>SETTINGS</h2>
       <Button onClick={handleCreate}>Create</Button>{' '}
       <Button onClick={handleRestore}>Restore</Button>{' '}
       <Button onClick={handleLogout}>Logout</Button>
