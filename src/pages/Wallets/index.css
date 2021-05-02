@@ -10,9 +10,22 @@
 }
 
 .wallet-item__header {
+  position: relative;
+  margin-bottom: 1.4em;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+}
+
+.wallet-item__header::after {
+  content: '';
+  position: absolute;
+  bottom: -0.7em;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  border-radius: 1em;
+  opacity: 0.3;
+  background: linear-gradient(to right, var(--color), transparent);
 }
 
 .wallet-item__ticker {
@@ -22,4 +35,46 @@
 .wallet-item__balance-wrapper {
   display: flex;
   flex-direction: column;
+}
+
+.wallet-item__address {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wallet-item__address form {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.wallet-item__copy-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1em;
+  height: 1em;
+  border: none;
+  background-color: transparent;
+}
+
+.wallet-item__copy-tip {
+  position: absolute;
+  left: 50%;
+  top: -190%;
+  transform: translateX(-50%);
+  padding: 0.3em 0.6em;
+  font-size: 0.9em;
+  border-radius: 0.7em;
+  box-shadow: var(--general-shadow);
+  background-color: var(--background-color);
+  color: var(--color);
+}
+
+.wallet-item__copy-button img {
+  width: 0.97em;
+  height: 0.97em;
 }

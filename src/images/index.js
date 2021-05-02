@@ -5,6 +5,7 @@ import sun from './sun.svg';
 import moon from './moon.svg';
 import btc from './btc.svg';
 import dollar from './dollar.svg';
+import copy from './copy.svg';
 
 const Icons = {
   home,
@@ -14,6 +15,7 @@ const Icons = {
   moon,
   btc,
   dollar,
+  copy,
 };
 
 export default Icons;
