@@ -49,11 +49,22 @@
 }
 
 .App-body__page-wrapper {
-  height: 28em;
+  height: 30em;
+  overflow-y: scroll;
   margin-bottom: 2.4em;
   border-radius: 2.5rem;
   background-color: var(--background-color);
   box-shadow: var(--general-shadow);
   -moz-box-shadow: var(--general-shadow);
   -webkit-box-shadow: var(--general-shadow);
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.App-body__page-wrapper::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.App-body__page-wrapper {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }

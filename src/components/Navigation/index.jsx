@@ -1,5 +1,6 @@
 import './index.css';
-import Icons from '../../images';
+import { IoIosSunny, IoMdMoon } from 'react-icons/io';
+import { AiFillHome, AiOutlineSend, AiOutlineSetting } from 'react-icons/ai';
 
 export const Navigation = (props) => {
   const { isDark, setIsDark, setActivePage } = props;
@@ -22,7 +23,7 @@ export const Navigation = (props) => {
             className="navigation__button"
             onClick={() => activePage('wallet')}
           >
-            <img className="navigation__img" src={Icons.home} alt="home icon" />
+            <AiFillHome size="100%" color="var(--color)" />
           </button>
         </li>
         <li>
@@ -30,7 +31,7 @@ export const Navigation = (props) => {
             className="navigation__button"
             onClick={() => activePage('send')}
           >
-            <img className="navigation__img" src={Icons.send} alt="send icon" />
+            <AiOutlineSend size="100%" color="var(--color)" />
           </button>
         </li>
         <li>
@@ -38,21 +39,17 @@ export const Navigation = (props) => {
             className="navigation__button"
             onClick={() => activePage('settings')}
           >
-            <img
-              className="navigation__img"
-              src={Icons.settings}
-              alt="settings icon"
-            />
+            <AiOutlineSetting size="100%" color="var(--color)" />
           </button>
         </li>
       </ul>
 
       <button className="navigation__theme-button" onClick={changeTheme}>
-        <img
-          className="navigation__img"
-          src={isDark ? Icons.sun : Icons.moon}
-          alt="theme icon"
-        />
+        {isDark ? (
+          <IoIosSunny size="100%" color="var(--color)" />
+        ) : (
+          <IoMdMoon size="100%" color="var(--color)" />
+        )}
       </button>
     </nav>
   );

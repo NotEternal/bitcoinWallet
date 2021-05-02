@@ -6,12 +6,12 @@ export const Wallets = () => {
     {
       ticker: 'btc',
       address: 'mpb5DPTbz6mpb5DPTbz6sdf89912h',
-      balance: 2.4561,
+      balance: 0,
     },
     {
       ticker: 'eth',
       address: 'mpb5DPTbz6mpb5DPTbz6sdf89912h',
-      balance: 13,
+      balance: 0,
     },
   ];
 

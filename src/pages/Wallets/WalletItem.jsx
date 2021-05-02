@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import Icons from '../../images';
+import { AiFillCopy } from 'react-icons/ai';
 
 export const WalletItem = (props) => {
   const { ticker, address, balance, shortAddress } = props;
@@ -52,7 +52,7 @@ export const WalletItem = (props) => {
         {document.queryCommandSupported('copy') && (
           <button className="wallet-item__copy-button" onClick={onCopy}>
             {isCopied && <span className="wallet-item__copy-tip">Copied!</span>}
-            <img src={Icons.copy} alt="copy icon" />
+            <AiFillCopy size="100%" color="var(--color)" />
           </button>
         )}
       </span>

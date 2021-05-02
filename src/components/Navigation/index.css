@@ -1,5 +1,5 @@
 .navigation {
-  padding: 2rem;
+  padding: 1.8rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -22,9 +22,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 3em;
-  height: 3em;
-  margin-right: 2vw;
+  width: 2.4em;
+  height: 2.4em;
+  margin-right: 3vw;
   padding: 0.2em;
   border: none;
   border-radius: 50%;
@@ -32,18 +32,12 @@
 }
 
 .navigation__theme-button {
-  width: 3.2em;
-  height: 3.2em;
+  width: 2.5em;
+  height: 2.5em;
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
   border-radius: 50%;
   background-color: transparent;
-}
-
-.navigation__img {
-  display: inline-block;
-  width: 80%;
-  height: 80%;
 }
