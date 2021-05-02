@@ -1,5 +1,19 @@
+import { useState, useRef } from 'react';
+import { AiFillCopy } from 'react-icons/ai';
+
 export const WalletItem = (props) => {
   const { ticker, address, balance, shortAddress } = props;
+  const [isCopied, setIsCopied] = useState('');
+  const textAreaRef = useRef(null);
+
+  const onCopy = (event) => {
+    textAreaRef.current.select();
+    document.execCommand('copy');
+    event.target.focus();
+
+    setIsCopied(true);
+    setTimeout(() => setIsCopied(false), 600);
+  };
 
   const partOfTheAddress =
     address.substr(0, 4) + // 4 chars
@@ -20,16 +34,27 @@ export const WalletItem = (props) => {
 
   return (
     <div className="wallet-item">
-      <p className="wallet-item__header">
+      <div className="wallet-item__header">
         <span className="wallet-item__ticker">{ticker.toUpperCase()}</span>{' '}
-        <div className="wallet-item__balance-wrapper">
+        <span className="wallet-item__balance-wrapper">
           <span className="wallet-item__crypto">{fixBalance()}</span>
           <span className="wallet-item__fiat">{fixBalance()}</span>
-        </div>
-      </p>
+        </span>
+      </div>
 
       <span className="wallet-item__address">
+        <form>
+          <textarea ref={textAreaRef} defaultValue={address} />
+        </form>
+
         {shortAddress ? partOfTheAddress : address}
+
+        {document.queryCommandSupported('copy') && (
+          <button className="wallet-item__copy-button" onClick={onCopy}>
+            {isCopied && <span className="wallet-item__copy-tip">Copied!</span>}
+            <AiFillCopy size="100%" color="var(--color)" />
+          </button>
+        )}
       </span>
     </div>
   );
