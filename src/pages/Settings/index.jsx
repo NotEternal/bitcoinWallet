@@ -1,5 +1,5 @@
 import './index.css';
-import Coin from '../../common/Coin';
+// import Coin from '../../common/Coin';
 import { Button } from '../../components/Button';
 
 export const Settings = () => {
