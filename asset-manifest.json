@@ -1,27 +1,20 @@
 {
   "files": {
-    "main.css": "/NotEternal/cryptoWallet/static/css/main.6c92a16c.chunk.css",
-    "main.js": "/NotEternal/cryptoWallet/static/js/main.97aa99ee.chunk.js",
-    "main.js.map": "/NotEternal/cryptoWallet/static/js/main.97aa99ee.chunk.js.map",
-    "runtime-main.js": "/NotEternal/cryptoWallet/static/js/runtime-main.fe292c85.js",
-    "runtime-main.js.map": "/NotEternal/cryptoWallet/static/js/runtime-main.fe292c85.js.map",
-    "static/js/2.2b5f6c6a.chunk.js": "/NotEternal/cryptoWallet/static/js/2.2b5f6c6a.chunk.js",
-    "static/js/2.2b5f6c6a.chunk.js.map": "/NotEternal/cryptoWallet/static/js/2.2b5f6c6a.chunk.js.map",
-    "index.html": "/NotEternal/cryptoWallet/index.html",
-    "static/css/main.6c92a16c.chunk.css.map": "/NotEternal/cryptoWallet/static/css/main.6c92a16c.chunk.css.map",
-    "static/js/2.2b5f6c6a.chunk.js.LICENSE.txt": "/NotEternal/cryptoWallet/static/js/2.2b5f6c6a.chunk.js.LICENSE.txt",
-    "static/media/btc.025735c0.svg": "/NotEternal/cryptoWallet/static/media/btc.025735c0.svg",
-    "static/media/dollar.9d585983.svg": "/NotEternal/cryptoWallet/static/media/dollar.9d585983.svg",
-    "static/media/home.e3cb9a4a.svg": "/NotEternal/cryptoWallet/static/media/home.e3cb9a4a.svg",
-    "static/media/moon.277bf077.svg": "/NotEternal/cryptoWallet/static/media/moon.277bf077.svg",
-    "static/media/send.104afca2.svg": "/NotEternal/cryptoWallet/static/media/send.104afca2.svg",
-    "static/media/settings.29ef81f7.svg": "/NotEternal/cryptoWallet/static/media/settings.29ef81f7.svg",
-    "static/media/sun.755cfb4b.svg": "/NotEternal/cryptoWallet/static/media/sun.755cfb4b.svg"
+    "main.css": "/cryptoWallet/static/css/main.96439996.chunk.css",
+    "main.js": "/cryptoWallet/static/js/main.9224a0ac.chunk.js",
+    "main.js.map": "/cryptoWallet/static/js/main.9224a0ac.chunk.js.map",
+    "runtime-main.js": "/cryptoWallet/static/js/runtime-main.0ea01d25.js",
+    "runtime-main.js.map": "/cryptoWallet/static/js/runtime-main.0ea01d25.js.map",
+    "static/js/2.67434ce4.chunk.js": "/cryptoWallet/static/js/2.67434ce4.chunk.js",
+    "static/js/2.67434ce4.chunk.js.map": "/cryptoWallet/static/js/2.67434ce4.chunk.js.map",
+    "index.html": "/cryptoWallet/index.html",
+    "static/css/main.96439996.chunk.css.map": "/cryptoWallet/static/css/main.96439996.chunk.css.map",
+    "static/js/2.67434ce4.chunk.js.LICENSE.txt": "/cryptoWallet/static/js/2.67434ce4.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.fe292c85.js",
-    "static/js/2.2b5f6c6a.chunk.js",
-    "static/css/main.6c92a16c.chunk.css",
-    "static/js/main.97aa99ee.chunk.js"
+    "static/js/runtime-main.0ea01d25.js",
+    "static/js/2.67434ce4.chunk.js",
+    "static/css/main.96439996.chunk.css",
+    "static/js/main.9224a0ac.chunk.js"
   ]
 }
