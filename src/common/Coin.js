@@ -64,6 +64,10 @@ class BtcLikeCoin {
       node,
     };
   };
+
+  send = async () => {
+    //
+  };
 }
 
 const Coin = {
