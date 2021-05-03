@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "license": "MIT",
-  "homepage": "https://github.com/NotEternal/cryptoWallet",
+  "homepage": "https://noteternal.github.io/cryptoWallet/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.6",
