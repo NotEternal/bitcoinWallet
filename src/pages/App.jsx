@@ -5,8 +5,11 @@ import { Settings } from './Settings';
 import { Navigation } from '../components/Navigation';
 import { Wallets } from './Wallets';
 import { Send } from './Send';
+import { Notification } from '../components/Notification';
 
 export const App = () => {
+  const [showNotification, setShowNotification] = useState(false);
+
   // Default settings =============================
 
   const hasLocalSettings = window.localStorage.getItem('wallets');
@@ -52,6 +55,10 @@ export const App = () => {
       <div className="App-body">
         <ErrorBoundary>
           <>
+            {showNotification && (
+              <Notification setShowNotification={setShowNotification} />
+            )}
+
             <div className="App-body__page-wrapper">
               {activePage === 'wallet' && <Wallets />}
               {activePage === 'send' && <Send />}
