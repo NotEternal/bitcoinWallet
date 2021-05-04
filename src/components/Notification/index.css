@@ -1,0 +1,8 @@
+.notification {
+  position: absolute;
+  top: 10vh;
+  right: 10vw;
+  border-radius: 2em;
+  box-shadow: var(--general-shadow);
+  background-color: var(--backgroun-color);
+}
