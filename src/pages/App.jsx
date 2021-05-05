@@ -8,23 +8,10 @@ import { Send } from './Send';
 import { Notification } from '../components/Notification';
 
 export const App = () => {
+  // Notifications ================================
   const [showNotification, setShowNotification] = useState(false);
 
-  // Default settings =============================
-
-  const hasLocalSettings = window.localStorage.getItem('wallets');
-
-  if (!hasLocalSettings) {
-    window.localStorage.setItem(
-      'wallets',
-      JSON.stringify({
-        btc: [],
-      })
-    );
-  }
-
   // Default theme ================================
-
   const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
   const localStorageDark = window.localStorage.getItem('dark');
   const darkThemeIsActive = localStorageDark
@@ -33,22 +20,39 @@ export const App = () => {
   const [isDark, setIsDark] = useState(darkThemeIsActive);
 
   // Default page =================================
-
   const localStoragePage = window.localStorage.getItem('page');
   const defaultPage = localStoragePage ? localStoragePage : 'wallet';
   const [activePage, setActivePage] = useState(defaultPage);
 
   // Checking wallets =============================
+  const strWallets = window.localStorage.getItem('wallets') || '{}';
+  const localStorageWallets = JSON.parse(strWallets);
+  const [wallets, setWallets] = useState(localStorageWallets);
 
-  const [hasAnyWallet, setHasAnyWallet] = useState(false);
+  if (!Object.keys(wallets).length) {
+    window.localStorage.setItem(
+      'wallets',
+      JSON.stringify({
+        btc: [],
+      })
+    );
+  }
+
+  const setBtcWallet = (newWallet) => {
+    setWallets({
+      ...wallets,
+      btc: [...wallets.btc, ...newWallet],
+    });
+  };
 
   useEffect(() => {
-    const strWallets = window.localStorage.getItem('wallets') || '{}';
-    const wallets = JSON.parse(strWallets);
-    const btcWallets = wallets.btc;
-
-    setHasAnyWallet(!!btcWallets.length);
-  }, [setHasAnyWallet]);
+    window.localStorage.setItem(
+      'wallets',
+      JSON.stringify({
+        ...wallets,
+      })
+    );
+  }, [wallets]);
 
   return (
     <div className={`App ${isDark ? '' : 'light'}`}>
@@ -60,10 +64,11 @@ export const App = () => {
             )}
 
             <div className="App-body__page-wrapper">
-              {activePage === 'wallet' && <Wallets />}
+              {activePage === 'wallet' && <Wallets wallets={wallets} />}
               {activePage === 'send' && <Send />}
-              {activePage === 'settings' && <Settings />}
-              {hasAnyWallet && <Settings />}
+              {activePage === 'settings' && (
+                <Settings setBtcWallet={setBtcWallet} />
+              )}
             </div>
 
             <header>

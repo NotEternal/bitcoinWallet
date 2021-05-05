@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import { AiFillCopy } from 'react-icons/ai';
 
 export const WalletItem = (props) => {
-  const { ticker, address, balance, shortAddress } = props;
+  const { ticker, address, balance } = props;
   const [isCopied, setIsCopied] = useState('');
   const textAreaRef = useRef(null);
 
@@ -15,6 +15,7 @@ export const WalletItem = (props) => {
     setTimeout(() => setIsCopied(false), 600);
   };
 
+  // TODO: check window width and set a short address then
   const partOfTheAddress =
     address.substr(0, 4) + // 4 chars
     '...' +
@@ -47,7 +48,7 @@ export const WalletItem = (props) => {
           <textarea ref={textAreaRef} defaultValue={address} />
         </form>
 
-        {shortAddress ? partOfTheAddress : address}
+        {address}
 
         {document.queryCommandSupported('copy') && (
           <button className="wallet-item__copy-button" onClick={onCopy}>

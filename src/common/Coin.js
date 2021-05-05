@@ -1,6 +1,6 @@
 import BtcLib from 'bitcoinjs-lib';
-import bip39 from 'bip39';
-import bip32 from 'bip32';
+import * as bip39 from 'bip39';
+import * as bip32 from 'bip32';
 
 class BtcLikeCoin {
   constructor(params) {
@@ -10,20 +10,33 @@ class BtcLikeCoin {
     this.ticker = ticker;
     this.precision = precision;
 
-    console.log('%c Create new Coin', 'color: green;');
+    console.log('%cCreate new Coin', 'color: pink;');
     console.log('name: ', this.name);
     console.log('ticker: ', this.ticker);
     console.log('precision: ', this.precision);
   }
 
   createWallet = () => {
-    console.log('create wallet');
-
     const mnemonicPhrase = bip39.generateMnemonic();
     const seed = bip39.mnemonicToSeedSync(mnemonicPhrase);
-    const newWallet = 'abc...';
+    const newWallet = {
+      ticker: this.ticker,
+      precision: this.precision,
+      mnemonic: mnemonicPhrase,
+      address: 'kljh324hoi234hhoewqrh', // TODO: address
+      seed: seed,
+      balance: 0,
+    };
+    const wallets = JSON.parse(window.localStorage.getItem('wallets') || '{}');
 
-    console.log('seed: ', seed);
+    window.localStorage.setItem(
+      'wallets',
+      JSON.stringify({
+        ...wallets,
+        btc: [...wallets.btc, newWallet],
+      })
+    );
+
     return newWallet;
   };
 
@@ -70,12 +83,12 @@ class BtcLikeCoin {
   };
 }
 
-const Coin = {
+const Coin = Object.freeze({
   BTC: new BtcLikeCoin({
     name: 'Bitcoin',
     ticker: 'BTC',
     precision: 8,
   }),
-};
+});
 
 export default Coin;
