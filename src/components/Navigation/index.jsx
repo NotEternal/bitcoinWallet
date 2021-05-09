@@ -29,7 +29,7 @@ export const Navigation = (props) => {
         <li>
           <button
             className="navigation__button"
-            onClick={() => activePage('send')}
+            onClick={() => activePage('transfer')}
           >
             <AiOutlineSend size="100%" color="var(--color)" />
           </button>

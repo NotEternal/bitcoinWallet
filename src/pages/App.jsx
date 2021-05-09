@@ -4,7 +4,7 @@ import { ErrorBoundary } from '../components/ErrorBoundary';
 import { Settings } from './Settings';
 import { Navigation } from '../components/Navigation';
 import { Wallets } from './Wallets';
-import { Send } from './Send';
+import { Transfer } from './Transfer';
 import { Notification } from '../components/Notification';
 
 export const App = () => {
@@ -65,7 +65,7 @@ export const App = () => {
 
             <div className="App-body__page-wrapper">
               {activePage === 'wallet' && <Wallets wallets={wallets} />}
-              {activePage === 'send' && <Send />}
+              {activePage === 'transfer' && <Transfer wallets={wallets} />}
               {activePage === 'settings' && (
                 <Settings setBtcWallet={setBtcWallet} />
               )}

@@ -14,12 +14,12 @@ export const Settings = () => {
   };
 
   const handleLogout = () => {
-    //
+    window.localStorage.clear();
   };
 
   return (
     <div className="settings">
-      <h2>SETTINGS</h2>
+      <h2 className="page-title">SETTINGS</h2>
       <Button onClick={handleCreate}>Create</Button>{' '}
       <Button onClick={handleRestore}>Restore</Button>{' '}
       <Button onClick={handleLogout}>Logout</Button>

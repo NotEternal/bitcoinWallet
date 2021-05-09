@@ -6,7 +6,6 @@
   border: none;
   border-radius: 1em;
   letter-spacing: 0.08rem;
-  border: var(--border);
   box-shadow: inset var(--general-shadow);
   background-color: var(--background-color);
   color: var(--color);
