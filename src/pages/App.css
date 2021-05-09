@@ -19,6 +19,7 @@
 
   --color: var(--white);
   --error-color: var(--red);
+  --notice-color: var(--dark-gray);
   --background-color: var(--dark);
   --general-background-color: var(--light-dark);
   --general-shadow: 0 0.2em 1.8em var(--black);
@@ -37,6 +38,7 @@
   );
 
   --color: var(--black);
+  --notice-color: var(--gray);
   --background-color: var(--light);
   --general-shadow: 0 0.2em 1.5em 0.1em var(--dark-light);
   --border: 0.1em solid var(--gray);
@@ -67,4 +69,10 @@
 .App-body__page-wrapper {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+.page-title {
+  margin: 0 0 1rem;
+  letter-spacing: 0.1em;
+  color: var(--notice-color);
 }
