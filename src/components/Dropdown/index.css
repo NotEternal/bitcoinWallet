@@ -1,25 +1,32 @@
 .dropdown {
+  cursor: pointer;
+  position: relative;
   padding: 1em;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   border-radius: 0.7em;
-  border: var(--border);
   box-shadow: inset var(--general-shadow);
   background-color: var(--background-color);
   color: var(--color);
 }
 
 .dropdown__list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  width: 100%;
 }
 
-.dropdown__item {
-  /*  */
+.dropdown__item:not(:first-child) {
+  margin-top: 1.2em;
 }
 
 .dropdown__item.hidden {
   display: none;
+}
+
+.dropdown.open {
+  box-shadow: var(--general-shadow);
+}
+
+.dropdown.open .dropdown__item.hidden {
+  display: block;
 }
