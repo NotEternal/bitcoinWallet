@@ -1,35 +1,42 @@
 import { IoIosArrowDown } from 'react-icons/io';
+import { useState } from 'react';
 import './index.css';
 
 export const Dropdown = (props) => {
   const { list } = props;
+  const [dropdownIsOpen, setDropdownIsOpen] = useState(false);
+
+  const onClick = () => {
+    if (list.length === 1) return;
+
+    setDropdownIsOpen(!dropdownIsOpen);
+  };
 
   return (
-    <div className="dropdown">
+    <div
+      className={`dropdown ${dropdownIsOpen ? 'open' : ''}`}
+      onClick={onClick}
+    >
       {list.length === 1 ? (
-        <ul className="dropdown__list">
-          <li>
-            <span>{list[0].ticker}</span>
-            <span>{list[0].address}</span>
-          </li>
-        </ul>
+        <div className="dropdown__list">
+          <div>{list[0]}</div>
+        </div>
       ) : (
-        <ul className="dropdown__list many">
+        <div className="dropdown__list many">
           {list.map((item, index) => {
             return (
-              <li
+              <div
                 className={`dropdown__item ${index ? 'hidden' : ''}`}
                 key={index}
               >
-                <span>{item.ticker}</span>
-                <span>{item.address}</span>
-              </li>
+                {item}
+              </div>
             );
           })}
-        </ul>
+        </div>
       )}
 
-      <IoIosArrowDown color="var(--color)" />
+      {!dropdownIsOpen && <IoIosArrowDown size="1.1rem" color="var(--color)" />}
     </div>
   );
 };

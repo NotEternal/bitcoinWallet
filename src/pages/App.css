@@ -72,7 +72,20 @@
 }
 
 .page-title {
-  margin: 0 0 1rem;
+  position: relative;
+  margin: 0 0 1.3rem;
   letter-spacing: 0.1em;
   color: var(--notice-color);
+}
+
+.page-title::after {
+  content: '';
+  position: absolute;
+  bottom: -0.3em;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  border-radius: 1em;
+  background-color: var(--notice-color);
+  background: linear-gradient(to right, var(--notice-color), transparent);
 }
