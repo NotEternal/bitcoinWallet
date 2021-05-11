@@ -5,11 +5,10 @@ export const Input = (props) => {
 
   const checkAddressInput = (event) => {
     // TODO: how long can address be ?
-    const regExp = /\w{10,}/;
-
-    if (!event.value.match(regExp)) {
-      event.preventDefault();
-    }
+    // const regExp = /\w{10,}/;
+    // if (!event.value.match(regExp)) {
+    //   event.preventDefault();
+    // }
   };
 
   if (type === 'address') {

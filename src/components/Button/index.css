@@ -6,9 +6,14 @@
   border: none;
   border-radius: 1em;
   letter-spacing: 0.08rem;
-  box-shadow: inset var(--general-shadow);
+  border: var(--border);
   background-color: var(--background-color);
   color: var(--color);
+  transition: 0.2s;
+}
+
+.button:hover {
+  border-color: var(--brand-color);
 }
 
 .button.disable {

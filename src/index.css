@@ -34,7 +34,7 @@ html {
   --orange: #fd7e14;
   --blue: #0073df;
   --pink: #ec4d9d;
-  --brand-color: var(--blue);
+  --brand-color: var(--orange);
 
   font-family: 'Source Code Pro', sans-serif;
   box-sizing: border-box;

@@ -23,7 +23,7 @@
   --background-color: var(--dark);
   --general-background-color: var(--light-dark);
   --general-shadow: 0 0.1em 1.1em #0a0a0a;
-  --border: 0.1em solid var(--dark);
+  --border: 0.1em solid var(--dark-gray);
 }
 
 .App.light {
