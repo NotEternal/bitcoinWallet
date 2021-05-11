@@ -5,15 +5,15 @@
   justify-content: center;
   color: var(--white);
   background-color: var(--light-dark);
-  background: radial-gradient(circle, var(--light-dark) 0%, var(--black) 100%);
+  background: radial-gradient(circle, var(--light-dark) 10%, var(--black) 100%);
   background: -moz-radial-gradient(
     circle,
-    var(--light-dark) 0%,
+    var(--light-dark) 10%,
     var(--black) 100%
   );
   background: -webkit-radial-gradient(
     circle,
-    var(--light-dark) 0%,
+    var(--light-dark) 10%,
     var(--black) 100%
   );
 
@@ -22,7 +22,7 @@
   --notice-color: var(--dark-gray);
   --background-color: var(--dark);
   --general-background-color: var(--light-dark);
-  --general-shadow: 0 0.2em 1.8em var(--black);
+  --general-shadow: 0 0.1em 1.1em #0a0a0a;
   --border: 0.1em solid var(--dark);
 }
 
@@ -40,7 +40,7 @@
   --color: var(--black);
   --notice-color: var(--gray);
   --background-color: var(--light);
-  --general-shadow: 0 0.2em 1.5em 0.1em var(--dark-light);
+  --general-shadow: 0 0.2em 1.5em 0.1em #c4c4c4;
   --border: 0.1em solid var(--gray);
 }
 
