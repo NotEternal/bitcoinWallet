@@ -3,7 +3,7 @@ import { WalletItem } from './WalletItem';
 
 export const Wallets = (props) => {
   const { wallets } = props;
-  const { btc } = wallets;
+  const { btc = [] } = wallets;
 
   return (
     <div className="wallets">

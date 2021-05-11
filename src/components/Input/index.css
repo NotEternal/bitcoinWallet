@@ -6,7 +6,7 @@
   border-radius: 1em;
   border: var(--border);
   border-color: transparent;
-  box-shadow: inset var(--general-shadow);
+  border: var(--border);
   background-color: var(--background-color);
   color: var(--color);
   transition: 0.2s;
