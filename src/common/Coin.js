@@ -9,24 +9,29 @@ class BtcLikeCoin {
     this.name = name;
     this.ticker = ticker;
     this.precision = precision;
-
-    console.log('%cCreate new Coin', 'color: pink;');
-    console.log('name: ', this.name);
-    console.log('ticker: ', this.ticker);
-    console.log('precision: ', this.precision);
   }
 
-  createWallet = () => {
-    const mnemonicPhrase = bip39.generateMnemonic();
-    const seed = bip39.mnemonicToSeedSync(mnemonicPhrase);
+  createWallet = (params) => {
+    const { network } = params;
+    const mnemonic = bip39.generateMnemonic();
+    const seed = bip39.mnemonicToSeedSync(mnemonic);
+    const root = bip32.fromSeed(seed, network);
+    const node = root.derivePath(`m/44'/0'/0'/0/0`);
+    const account = BtcLib.payments.p2pkh({
+      pubkey: node.publicKey,
+      network,
+    });
+
     const newWallet = {
+      balance: 0,
       ticker: this.ticker,
       precision: this.precision,
-      mnemonic: mnemonicPhrase,
-      address: 'kljh324hoi234hhoewqrh', // TODO: address
-      seed: seed,
-      balance: 0,
+      mnemonic,
+      pubKey: node.publicKey,
+      privKey: node.privateKey,
+      address: account.address,
     };
+
     const wallets = JSON.parse(window.localStorage.getItem('wallets') || '{}');
 
     window.localStorage.setItem(
@@ -40,19 +45,7 @@ class BtcLikeCoin {
     return newWallet;
   };
 
-  restoreWallet = (params) => {
-    console.log('restore wallet');
-
-    const { mnemonic } = params;
-    console.log('mnemonic: ', mnemonic);
-    const address = 'abc...';
-
-    return address;
-  };
-
   getBalance = () => {
-    console.log('get balance');
-
     return new Promise((res, rej) => {
       res(0);
     });
@@ -69,12 +62,20 @@ class BtcLikeCoin {
       network: network,
     });
 
+    console.log('getWallet');
+    console.log('seed: ', seed);
+    console.log('root: ', root);
+    console.log('node: ', node);
+    console.log('account: ', account);
+
     return {
+      balance: 0,
+      ticker: this.ticker,
+      precision: this.precision,
       mnemonic,
+      pubKey: node.publicKey,
+      privKey: node.privateKey,
       address: account.address,
-      publicKey: node.publicKey.toString('Hex'),
-      WIF: node.toWIF(),
-      node,
     };
   };
 
