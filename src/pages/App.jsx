@@ -52,6 +52,7 @@ export const App = () => {
         ...wallets,
       })
     );
+
   }, [wallets]);
 
   return (
@@ -67,7 +68,10 @@ export const App = () => {
               {activePage === 'wallet' && <Wallets wallets={wallets} />}
               {activePage === 'transfer' && <Transfer wallets={wallets} />}
               {activePage === 'settings' && (
-                <Settings setBtcWallet={setBtcWallet} />
+                <Settings
+                  setBtcWallet={setBtcWallet}
+                  setActivePage={setActivePage}
+                />
               )}
             </div>
 

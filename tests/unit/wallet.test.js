@@ -33,8 +33,8 @@ describe('Bitcoin tests', () => {
 
   test('Get wallet: should return an object', () => {
     expect(
-      Coin.getWallet({
-        network: '',
+      Coin.restoreWallet({
+        network: BtcLib.networks.testnet,
         mnemonic: testWallets.btc.mnemonic,
       })
     ).toBe();

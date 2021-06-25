@@ -1,5 +1,6 @@
-import './index.css';
+import './index.sass';
 import { WalletItem } from './WalletItem';
+import { RiBitCoinFill } from 'react-icons/ri';
 
 export const Wallets = (props) => {
   const { wallets } = props;
@@ -13,9 +14,8 @@ export const Wallets = (props) => {
         btc.map((wallet, index) => {
           return (
             <WalletItem
-              ticker={wallet.ticker}
-              address={wallet.address}
-              balance={wallet.balance}
+              walletIcon={<RiBitCoinFill size="100%" color="inherit" />}
+              wallet={wallet}
               key={index}
             />
           );
