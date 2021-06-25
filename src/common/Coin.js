@@ -1,4 +1,4 @@
-import BtcLib from 'bitcoinjs-lib';
+import * as BtcLib from 'bitcoinjs-lib';
 import * as bip39 from 'bip39';
 import * as bip32 from 'bip32';
 
@@ -51,7 +51,7 @@ class BtcLikeCoin {
     });
   };
 
-  getWallet = (params) => {
+  restoreWallet = (params) => {
     const { network, mnemonic } = params;
     const seed = bip39.mnemonicToSeedSync(mnemonic);
     const root = bip32.fromSeed(seed, network);

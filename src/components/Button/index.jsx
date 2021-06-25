@@ -1,4 +1,4 @@
-import './index.css';
+import './index.sass';
 
 export const Button = (props) => {
   const { children, isLoading, onClick } = props;

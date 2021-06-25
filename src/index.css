@@ -1,13 +1,3 @@
-/* cyrillic */
-@font-face {
-  font-family: 'Source Code Pro';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/sourcecodepro/v13/HI_SiYsKILxRpg3hIP6sJ7fM7PqlOevWjMY.woff2)
-    format('woff2');
-  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
 /* latin */
 @font-face {
   font-family: 'Source Code Pro';
@@ -28,13 +18,10 @@ html {
   --dark-gray: #3d3d3d;
   --white: #fff;
   --light: #e6e6e6;
-  --dark-light: #bbbbbb;
   --gray: #adadad;
   --red: #fd6363;
-  --orange: #fd7e14;
-  --blue: #0073df;
-  --pink: #ec4d9d;
-  --brand-color: var(--orange);
+  --orange: #17e968;
+  --blue: #004bd6;
 
   font-family: 'Source Code Pro', sans-serif;
   box-sizing: border-box;

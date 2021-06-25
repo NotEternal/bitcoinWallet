@@ -21,6 +21,7 @@
   --error-color: var(--red);
   --notice-color: var(--dark-gray);
   --background-color: var(--dark);
+  --brand-color: var(--orange);
   --general-background-color: var(--light-dark);
   --general-shadow: 0 0.1em 1.1em #0a0a0a;
   --border: 0.1em solid var(--dark-gray);
@@ -40,6 +41,7 @@
   --color: var(--black);
   --notice-color: var(--gray);
   --background-color: var(--light);
+  --brand-color: var(--blue);
   --general-shadow: 0 0.2em 1.5em 0.1em #c4c4c4;
   --border: 0.1em solid var(--gray);
 }
@@ -47,7 +49,7 @@
 .App-body {
   width: 50%;
   min-width: 320px;
-  max-width: 34em;
+  max-width: 38em;
 }
 
 .App-body__page-wrapper {
