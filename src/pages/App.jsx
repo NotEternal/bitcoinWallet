@@ -52,7 +52,6 @@ export const App = () => {
         ...wallets,
       })
     );
-
   }, [wallets]);
 
   return (
