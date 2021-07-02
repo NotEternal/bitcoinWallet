@@ -67,7 +67,11 @@ export const App = () => {
               {activePage === 'wallet' && <Wallets wallets={wallets} />}
               {activePage === 'transfer' && <Transfer wallets={wallets} />}
               {activePage === 'settings' && (
-                <Settings setWallet={setWallet} setActivePage={setActivePage} />
+                <Settings
+                  setWallets={setWallets}
+                  setWallet={setWallet}
+                  setActivePage={setActivePage}
+                />
               )}
             </div>
 
