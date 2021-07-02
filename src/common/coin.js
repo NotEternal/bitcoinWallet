@@ -32,16 +32,6 @@ class BtcLikeCoin {
       address: account.address,
     };
 
-    const wallets = JSON.parse(window.localStorage.getItem('wallets') || '{}');
-
-    window.localStorage.setItem(
-      'wallets',
-      JSON.stringify({
-        ...wallets,
-        btc: [...wallets.btc, newWallet],
-      })
-    );
-
     return newWallet;
   };
 

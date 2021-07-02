@@ -4,30 +4,56 @@ import { MdRestore } from 'react-icons/md';
 import { IoMdExit } from 'react-icons/io';
 import { IoCreateOutline } from 'react-icons/io5';
 import './index.sass';
-import Coin from '../../common/Coin';
+import Coin from '../../common/coin';
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
 
 export const Settings = (props) => {
-  const { setActivePage } = props;
+  const { setActivePage, setWallets, setWallet } = props;
   const [showRestoreBlock, setShowRestoreBlock] = useState(false);
 
+  const toggleRestoreBlockVisibility = () => {
+    setShowRestoreBlock(!showRestoreBlock);
+  };
+
+  const [showSavingTheMnemonic, setShowSavingTheMnemonic] = useState(false);
+  const [newWallet, setNewWallet] = useState(undefined);
+  const [newMnemonic, setNewMnemonic] = useState('');
+
   const handleCreate = () => {
-    Coin.BTC.createWallet({
+    const newWallet = Coin.BTC.createWallet({
       network: BtcLib.networks.testnet,
     });
 
-    window.localStorage.setItem('page', 'wallet');
-    setActivePage('wallet');
+    prepareNewWallet(newWallet);
+  };
+
+  const prepareNewWallet = (wallet) => {
+    setNewWallet(wallet);
+    setNewMnemonic(wallet.mnemonic);
+    setShowSavingTheMnemonic(true);
+  };
+
+  const saveWallet = (params) => {
+    if (newWallet) {
+      setWallet({
+        name: newWallet.ticker,
+        wallet: newWallet,
+      });
+
+      window.localStorage.setItem('page', 'wallet');
+      setActivePage('wallet');
+    }
   };
 
   const handleRestore = (mnemonic) => {
-    Coin.BTC.restoreWallet({
-      mnemonic,
-    });
+    // Coin.BTC.restoreWallet({
+    //   mnemonic,
+    // });
   };
 
   const handleLogout = () => {
+    setWallets({});
     window.localStorage.clear();
   };
 
@@ -42,11 +68,11 @@ export const Settings = (props) => {
           </span>
           Create
         </Button>{' '}
-        <Button onClick={() => setShowRestoreBlock(true)}>
+        <Button onClick={toggleRestoreBlockVisibility}>
           <span className="settings__icon">
             <MdRestore size="100%" color="inherit" />
           </span>
-          Mnemonic
+          Restore
         </Button>{' '}
         <Button onClick={handleLogout}>
           <span className="settings__icon">
@@ -56,16 +82,31 @@ export const Settings = (props) => {
         </Button>
       </div>
 
+      {showSavingTheMnemonic && (
+        <div>
+          <p className="warning">
+            Please save this mnemonic phrase in the safe place. You will be able
+            to restore your wallet only with this phrase
+          </p>
+          <textarea
+            defaultValue={newMnemonic}
+            className="mnemonic-phrase-field"
+          />
+          <div className="settings__mnemonic-buttons">
+            <button onClick={() => saveWallet()}>I saved</button>
+            <button onClick={() => setShowSavingTheMnemonic(false)}>
+              Cancel
+            </button>
+          </div>
+        </div>
+      )}
+
       {showRestoreBlock && (
         <div className="settings__restore-block">
           <Input type="text" />
 
           <div className="settings__restore-buttons">
-            <button
-            // onClick={handleRestore}
-            >
-              Restore
-            </button>
+            <button onClick={handleRestore}>Restore</button>
             <button onClick={() => setShowRestoreBlock(false)}>Close</button>
           </div>
         </div>

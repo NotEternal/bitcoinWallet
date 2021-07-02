@@ -19,7 +19,7 @@
 
   --color: var(--white);
   --error-color: var(--red);
-  --notice-color: var(--dark-gray);
+  --notice-color: #272727;
   --background-color: var(--dark);
   --brand-color: var(--orange);
   --general-background-color: var(--light-dark);
@@ -39,7 +39,7 @@
   );
 
   --color: var(--black);
-  --notice-color: var(--gray);
+  --notice-color: rgb(221, 221, 221);
   --background-color: var(--light);
   --brand-color: var(--blue);
   --general-shadow: 0 0.2em 1.5em 0.1em #c4c4c4;
@@ -77,17 +77,4 @@
   position: relative;
   margin: 0 0 1.3rem;
   letter-spacing: 0.1em;
-  color: var(--notice-color);
-}
-
-.page-title::after {
-  content: '';
-  position: absolute;
-  bottom: -0.3em;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  border-radius: 1em;
-  background-color: var(--notice-color);
-  background: linear-gradient(to right, var(--notice-color), transparent);
 }

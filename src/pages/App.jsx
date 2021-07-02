@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './App.css';
+import { saveUserData } from '../common/data';
 import { ErrorBoundary } from '../components/ErrorBoundary';
 import { Settings } from './Settings';
 import { Navigation } from '../components/Navigation';
@@ -24,35 +25,34 @@ export const App = () => {
   const defaultPage = localStoragePage ? localStoragePage : 'wallet';
   const [activePage, setActivePage] = useState(defaultPage);
 
-  // Checking wallets =============================
+  // Wallets =============================
   const strWallets = window.localStorage.getItem('wallets') || '{}';
   const localStorageWallets = JSON.parse(strWallets);
   const [wallets, setWallets] = useState(localStorageWallets);
 
-  if (!Object.keys(wallets).length) {
-    window.localStorage.setItem(
-      'wallets',
-      JSON.stringify({
-        btc: [],
-      })
-    );
+  function onLogout(event) {
+    event.preventDefault();
+    delete event['returnValue'];
+
+    saveUserData({
+      name: 'wallets',
+      data: JSON.stringify(wallets),
+    });
   }
 
-  const setBtcWallet = (newWallet) => {
+  if (typeof window !== 'undefined') {
+    window.addEventListener('beforeunload', onLogout);
+  }
+
+  function setWallet(params) {
+    const { name, wallet } = params;
+    const walletsByName = wallets[name] || [];
+
     setWallets({
       ...wallets,
-      btc: [...wallets.btc, ...newWallet],
+      [name]: [...walletsByName, wallet],
     });
-  };
-
-  useEffect(() => {
-    window.localStorage.setItem(
-      'wallets',
-      JSON.stringify({
-        ...wallets,
-      })
-    );
-  }, [wallets]);
+  }
 
   return (
     <div className={`App ${isDark ? '' : 'light'}`}>
@@ -68,7 +68,8 @@ export const App = () => {
               {activePage === 'transfer' && <Transfer wallets={wallets} />}
               {activePage === 'settings' && (
                 <Settings
-                  setBtcWallet={setBtcWallet}
+                  setWallets={setWallets}
+                  setWallet={setWallet}
                   setActivePage={setActivePage}
                 />
               )}
