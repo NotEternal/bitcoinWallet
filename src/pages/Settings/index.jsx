@@ -4,17 +4,22 @@ import { MdRestore } from 'react-icons/md';
 import { IoMdExit } from 'react-icons/io';
 import { IoCreateOutline } from 'react-icons/io5';
 import './index.sass';
-import Coin from '../../common/Coin';
+import Coin from '../../common/coin';
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
 
 export const Settings = (props) => {
-  const { setActivePage } = props;
+  const { setActivePage, setWallet } = props;
   const [showRestoreBlock, setShowRestoreBlock] = useState(false);
 
   const handleCreate = () => {
-    Coin.BTC.createWallet({
+    const newWallet = Coin.BTC.createWallet({
       network: BtcLib.networks.testnet,
+    });
+
+    setWallet({
+      name: 'btc',
+      wallet: newWallet,
     });
 
     window.localStorage.setItem('page', 'wallet');
