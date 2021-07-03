@@ -3,6 +3,8 @@ import * as BtcLib from 'bitcoinjs-lib';
 import { MdRestore } from 'react-icons/md';
 import { IoMdExit } from 'react-icons/io';
 import { IoCreateOutline } from 'react-icons/io5';
+import { GrStatusGood } from 'react-icons/gr';
+import { TiCancelOutline } from 'react-icons/ti';
 import './index.sass';
 import Coin from '../../common/coin';
 import { Button } from '../../components/Button';
@@ -34,7 +36,7 @@ export const Settings = (props) => {
     setShowSavingTheMnemonic(true);
   };
 
-  const saveWallet = (params) => {
+  const saveWallet = () => {
     if (newWallet) {
       setWallet({
         name: newWallet.ticker,
@@ -51,6 +53,8 @@ export const Settings = (props) => {
     //   mnemonic,
     // });
   };
+
+  const [confirmLogout, setConfirmLogout] = useState(false)
 
   const handleLogout = () => {
     setWallets({});
@@ -74,7 +78,7 @@ export const Settings = (props) => {
           </span>
           Restore
         </Button>{' '}
-        <Button onClick={handleLogout}>
+        <Button onClick={() => setConfirmLogout(true)}>
           <span className="settings__icon">
             <IoMdExit size="100%" color="inherit" />
           </span>
@@ -82,34 +86,84 @@ export const Settings = (props) => {
         </Button>
       </div>
 
+      {/* 
+
+      TODO: move code below as individual components 
+
+      */}
+
       {showSavingTheMnemonic && (
-        <div>
+        <section className="settings__section">
           <p className="warning">
             Please save this mnemonic phrase in the safe place. You will be able
             to restore your wallet only with this phrase
           </p>
-          <textarea
-            defaultValue={newMnemonic}
-            className="mnemonic-phrase-field"
-          />
-          <div className="settings__mnemonic-buttons">
-            <button onClick={() => saveWallet()}>I saved</button>
-            <button onClick={() => setShowSavingTheMnemonic(false)}>
+          <p className="new-mnemonic-phrase">
+            {newMnemonic}
+          </p>
+
+          <div>
+            <Button type="small" onClick={saveWallet}>
+              <span className="settings__icon">
+                <GrStatusGood size="100%" color="inherit" />
+              </span>
+              I saved
+            </Button>
+            {' '}
+            <Button type="small" onClick={() => setShowSavingTheMnemonic(false)}>
+              <span className="settings__icon">
+                <TiCancelOutline size="100%" color="inherit" />
+              </span>
               Cancel
-            </button>
+            </Button>
           </div>
-        </div>
+        </section>
       )}
 
       {showRestoreBlock && (
-        <div className="settings__restore-block">
+        <section className="settings__section">
           <Input type="text" />
 
-          <div className="settings__restore-buttons">
-            <button onClick={handleRestore}>Restore</button>
-            <button onClick={() => setShowRestoreBlock(false)}>Close</button>
+          <div>
+            <Button type="small" onClick={handleRestore}>
+              <span className="settings__icon">
+                <MdRestore size="100%" color="inherit" />
+              </span>
+              Restore
+            </Button>
+            {' '}
+            <Button type="small" onClick={() => setShowRestoreBlock(false)}>
+              <span className="settings__icon">
+                <TiCancelOutline size="100%" color="inherit" />
+              </span>
+              Close
+            </Button>
           </div>
-        </div>
+        </section>
+      )}
+
+      {confirmLogout && (
+        <section className="settings__section">
+          <p className="warning">
+            It cleans all data from your browser. Are you sure ?
+          </p>
+
+          <div>
+            <Button type="small" onClick={handleLogout}>
+              <span className="settings__icon">
+                <MdRestore size="100%" color="inherit" />
+              </span>
+              Confirm
+            </Button>
+            {' '}
+            <Button type="small" onClick={() => setConfirmLogout(false)}>
+              <span className="settings__icon">
+                <TiCancelOutline size="100%" color="inherit" />
+              </span>
+              Cancel
+            </Button>
+          </div>
+        </section>
       )}
     </div>
   );

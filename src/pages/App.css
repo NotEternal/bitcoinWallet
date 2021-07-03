@@ -39,7 +39,7 @@
   );
 
   --color: var(--black);
-  --notice-color: rgb(221, 221, 221);
+  --notice-color: rgb(223, 223, 223);
   --background-color: var(--light);
   --brand-color: var(--blue);
   --general-shadow: 0 0.2em 1.5em 0.1em #c4c4c4;
@@ -47,6 +47,7 @@
 }
 
 .App-body {
+  position: relative;
   width: 50%;
   min-width: 320px;
   max-width: 38em;
@@ -56,6 +57,7 @@
   height: 30em;
   overflow-y: scroll;
   margin-bottom: 2.4em;
+  padding-top: 3rem;
   border-radius: 2.5rem;
   background-color: var(--background-color);
   box-shadow: var(--general-shadow);
@@ -74,7 +76,16 @@
 }
 
 .page-title {
-  position: relative;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width:  100%;
   margin: 0 0 1.3rem;
+  padding: 1rem 2rem;
+  border-radius: 2.5rem 2.5rem 0 0;
+  border-bottom: 1px solid var(--notice-color);
   letter-spacing: 0.1em;
+  box-shadow: 0 .1rem .3rem var(--notice-color);
+  background-color: var(--background-color);
 }
