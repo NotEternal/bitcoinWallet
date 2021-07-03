@@ -48,10 +48,30 @@ export const Settings = (props) => {
     }
   };
 
-  const handleRestore = (mnemonic) => {
-    // Coin.BTC.restoreWallet({
-    //   mnemonic,
-    // });
+  const [userMnemonic, setUserMnemonic] = useState('');
+
+  const updateUserMnemonic = (event) => {
+    const validStrMnemonic = event.target.value
+      .trim()
+      .split(' ')
+      .filter((x) => x)
+      .join(' ');
+
+    setUserMnemonic(validStrMnemonic);
+  };
+
+  const handleRestore = async () => {
+    const restoredWallet = await Coin.BTC.restoreWallet({
+      mnemonic: userMnemonic,
+      network: BtcLib.networks.testnet,
+    });
+
+    if (restoredWallet) {
+      setNewWallet(restoredWallet);
+
+      // TODO: fix this redirect. Now it isn't working
+      saveWallet();
+    }
   };
 
   const [confirmLogout, setConfirmLogout] = useState(false);
@@ -122,7 +142,7 @@ export const Settings = (props) => {
 
       {showRestoreBlock && (
         <section className="settings__section">
-          <Input type="text" />
+          <Input type="text" onChange={updateUserMnemonic} />
 
           <div>
             <Button type="small" onClick={handleRestore}>

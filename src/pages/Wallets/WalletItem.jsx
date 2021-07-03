@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import { AiFillCopy } from 'react-icons/ai';
+import { GrUpdate } from 'react-icons/gr';
 
 export const WalletItem = (props) => {
   const { walletIcon, wallet, shortAddress = false } = props;
@@ -51,7 +52,9 @@ export const WalletItem = (props) => {
         <span className="wallet-item__icon">{walletIcon}</span>
 
         <span className="wallet-item__address">
-          {shortAddress ? partOfTheAddress : wallet.address}
+          <span className="mono-font">
+            {shortAddress ? partOfTheAddress : wallet.address}
+          </span>
           <form>
             <textarea ref={textAreaRef} defaultValue={wallet.address} />
           </form>
@@ -68,17 +71,22 @@ export const WalletItem = (props) => {
 
       <div className="wallet-item__middle">
         <span className="wallet-item__balance-wrapper">
-          <span className="wallet-item__crypto">{fixBalance()} BTC</span>
+          <span className="wallet-item__crypto mono-font">
+            {fixBalance()} BTC
+          </span>
+          <button className="wallet-item__update-balance">
+            <GrUpdate size="100%" color="inherit" />
+          </button>
         </span>
 
         <div>
-          <label htmlFor="wallet-item__extra-info">Extra info</label>
           <input
             type="checkbox"
             name="extra info"
             id="wallet-item__extra-info"
             onChange={toogleExtraInfoVisibility}
           />
+          <label htmlFor="wallet-item__extra-info">Extra info</label>
         </div>
       </div>
 
