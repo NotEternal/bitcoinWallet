@@ -1,8 +1,8 @@
 import * as BtcLib from 'bitcoinjs-lib';
 import * as bip39 from 'bip39';
 import * as bip32 from 'bip32';
-import BigNumber from 'bignumber.js'
-import testnetConfig from '../config/testnet'
+import BigNumber from 'bignumber.js';
+import testnetConfig from '../config/testnet';
 
 class UtxoCoin {
   constructor(params) {
@@ -11,7 +11,7 @@ class UtxoCoin {
     this.name = name;
     this.ticker = ticker;
     this.precision = precision;
-    this.api = api
+    this.api = api;
   }
 
   createWallet = (params) => {
@@ -40,19 +40,17 @@ class UtxoCoin {
   };
 
   getBalance = async (params) => {
-    const {address, network} = params
+    const { address, network } = params;
 
     if (window.fetch) {
-      const response = await fetch(`${this.api}/address/${address}/balance/`)
-      const data = await response.json()
-      const { balance: satoshiBalance, unconfirmed } = data
+      const response = await fetch(`${this.api}/address/${address}/balance/`);
+      const data = await response.json();
+      const { balance: satoshiBalance, unconfirmed } = data;
 
-      return new BigNumber(satoshiBalance)
-        .dividedBy(100_000_000)
-        .toNumber()
+      return new BigNumber(satoshiBalance).dividedBy(100_000_000).toNumber();
     } else {
-      alert('your browser doesn\'t support this fetching balance')
-      return 0
+      alert("your browser doesn't support this fetching balance");
+      return 0;
     }
   };
 
@@ -72,7 +70,7 @@ class UtxoCoin {
       const balance = await this.getBalance({
         address: account.address,
         network,
-      })
+      });
 
       return {
         balance,
@@ -84,9 +82,9 @@ class UtxoCoin {
         mnemonic,
         network,
       };
-    } catch(e) {
+    } catch (e) {
       console.error(e);
-      return false
+      return false;
     }
   };
 

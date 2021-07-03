@@ -71,7 +71,9 @@ export const WalletItem = (props) => {
 
       <div className="wallet-item__middle">
         <span className="wallet-item__balance-wrapper">
-          <span className="wallet-item__crypto mono-font">{fixBalance()} BTC</span>
+          <span className="wallet-item__crypto mono-font">
+            {fixBalance()} BTC
+          </span>
           <button className="wallet-item__update-balance">
             <GrUpdate size="100%" color="inherit" />
           </button>

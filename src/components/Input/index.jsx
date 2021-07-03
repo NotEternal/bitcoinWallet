@@ -1,6 +1,6 @@
 import './index.css';
 
-const doNothing = () => null
+const doNothing = () => null;
 
 export const Input = (props) => {
   const { type, onChange = doNothing } = props;
@@ -17,8 +17,8 @@ export const Input = (props) => {
     return (
       <input
         onChange={() => {
-          onChange()
-          checkAddressInput()
+          onChange();
+          checkAddressInput();
         }}
         className="input mono-font"
         type="text"
@@ -26,8 +26,22 @@ export const Input = (props) => {
       />
     );
   } else if (type === 'amount') {
-    return <input onChange={onChange} className="input mono-font" type="number" placeholder="Amount" />;
+    return (
+      <input
+        onChange={onChange}
+        className="input mono-font"
+        type="number"
+        placeholder="Amount"
+      />
+    );
   }
 
-  return <input onChange={onChange} className="input" type="text" placeholder="..." />;
+  return (
+    <input
+      onChange={onChange}
+      className="input"
+      type="text"
+      placeholder="..."
+    />
+  );
 };

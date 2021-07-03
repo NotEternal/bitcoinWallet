@@ -48,17 +48,17 @@ export const Settings = (props) => {
     }
   };
 
-  const [userMnemonic, setUserMnemonic] = useState('')
+  const [userMnemonic, setUserMnemonic] = useState('');
 
   const updateUserMnemonic = (event) => {
     const validStrMnemonic = event.target.value
       .trim()
       .split(' ')
-      .filter(x => x)
-      .join(' ')
+      .filter((x) => x)
+      .join(' ');
 
-    setUserMnemonic(validStrMnemonic)
-  }
+    setUserMnemonic(validStrMnemonic);
+  };
 
   const handleRestore = async () => {
     const restoredWallet = await Coin.BTC.restoreWallet({
@@ -67,10 +67,10 @@ export const Settings = (props) => {
     });
 
     if (restoredWallet) {
-      setNewWallet(restoredWallet)
+      setNewWallet(restoredWallet);
 
       // TODO: fix this redirect. Now it isn't working
-      saveWallet()
+      saveWallet();
     }
   };
 
