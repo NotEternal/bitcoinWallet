@@ -1,7 +1,9 @@
 import './index.css';
 
+const doNothing = () => null
+
 export const Input = (props) => {
-  const { type, onChange } = props;
+  const { type, onChange = doNothing } = props;
 
   const checkAddressInput = (event) => {
     // TODO: how long can address be ?
@@ -18,13 +20,13 @@ export const Input = (props) => {
           onChange()
           checkAddressInput()
         }}
-        className="input"
+        className="input mono-font"
         type="text"
         placeholder="Recipient address"
       />
     );
   } else if (type === 'amount') {
-    return <input onChange={onChange} className="input" type="number" placeholder="Amount" />;
+    return <input onChange={onChange} className="input mono-font" type="number" placeholder="Amount" />;
   }
 
   return <input onChange={onChange} className="input" type="text" placeholder="..." />;

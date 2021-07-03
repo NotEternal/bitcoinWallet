@@ -89,3 +89,7 @@
   box-shadow: 0 .1rem .3rem var(--notice-color);
   background-color: var(--background-color);
 }
+
+.mono-font {
+  font-family: 'Source Code Pro';
+}
