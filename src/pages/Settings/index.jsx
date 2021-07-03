@@ -54,7 +54,7 @@ export const Settings = (props) => {
     // });
   };
 
-  const [confirmLogout, setConfirmLogout] = useState(false)
+  const [confirmLogout, setConfirmLogout] = useState(false);
 
   const handleLogout = () => {
     setWallets({});
@@ -98,9 +98,7 @@ export const Settings = (props) => {
             Please save this mnemonic phrase in the safe place. You will be able
             to restore your wallet only with this phrase
           </p>
-          <p className="new-mnemonic-phrase">
-            {newMnemonic}
-          </p>
+          <p className="new-mnemonic-phrase">{newMnemonic}</p>
 
           <div>
             <Button type="small" onClick={saveWallet}>
@@ -108,9 +106,11 @@ export const Settings = (props) => {
                 <GrStatusGood size="100%" color="inherit" />
               </span>
               I saved
-            </Button>
-            {' '}
-            <Button type="small" onClick={() => setShowSavingTheMnemonic(false)}>
+            </Button>{' '}
+            <Button
+              type="small"
+              onClick={() => setShowSavingTheMnemonic(false)}
+            >
               <span className="settings__icon">
                 <TiCancelOutline size="100%" color="inherit" />
               </span>
@@ -130,8 +130,7 @@ export const Settings = (props) => {
                 <MdRestore size="100%" color="inherit" />
               </span>
               Restore
-            </Button>
-            {' '}
+            </Button>{' '}
             <Button type="small" onClick={() => setShowRestoreBlock(false)}>
               <span className="settings__icon">
                 <TiCancelOutline size="100%" color="inherit" />
@@ -154,8 +153,7 @@ export const Settings = (props) => {
                 <MdRestore size="100%" color="inherit" />
               </span>
               Confirm
-            </Button>
-            {' '}
+            </Button>{' '}
             <Button type="small" onClick={() => setConfirmLogout(false)}>
               <span className="settings__icon">
                 <TiCancelOutline size="100%" color="inherit" />
