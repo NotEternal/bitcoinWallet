@@ -5,10 +5,8 @@ const main = css`
   padding: 2rem 4%;
 `
 
-export default function Main(): JSXElement {
-  return (
-    <main class={cx(main)}>
-      {/*  */}
-    </main>
-  )
+export default function Main(props: any): JSXElement {
+  const { children } = props
+
+  return <main class={cx(main)}>{children}</main>
 }
