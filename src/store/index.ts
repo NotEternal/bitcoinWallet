@@ -8,9 +8,11 @@ interface Wallet {
   balance: number
 }
 
+type Address = string
+
 interface Store {
   wallets: {
-    [k: string]: Wallet
+    [k: Address]: Wallet
   }
 }
 
