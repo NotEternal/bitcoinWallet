@@ -20,7 +20,6 @@
     "crypto-js": "^4.1.1",
     "ethereumjs-wallet": "^1.0.1",
     "solid-js": "^1.1.1",
-    "web3": "^1.5.3",
-    "zustand": "^3.5.10"
+    "web3": "^1.5.3"
   }
 }

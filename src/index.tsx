@@ -13,6 +13,7 @@ injectGlobal`
     --color-outline: #212121;
     --color-underground: rgba(0, 0, 0, 0.35);
     --color-shadow: #090909;
+    --color-dark: #000;
 
     background: var(--color-background);
     color: var(--color);
