@@ -1,19 +1,26 @@
 import type { JSXElement } from 'solid-js'
 import { css, cx } from '@emotion/css'
 import Header from './components/Header'
-import Main from './components/Main'
+import Wallet from './pages/Wallet'
 
 const app = css`
   min-height: 100vh;
-  background-color: #222831;
-  color: #eeeeee;
+`
+
+const main = css`
+  max-width: 50rem;
+  margin: 0 auto;
+  padding: 2rem 4%;
 `
 
 function App(): JSXElement {
   return (
     <div class={cx(app)}>
       <Header />
-      <Main />
+
+      <main class={cx(main)}>
+        <Wallet />
+      </main>
     </div>
   )
 }

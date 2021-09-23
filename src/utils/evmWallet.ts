@@ -1,7 +1,7 @@
 import bip39 from 'bip39'
 import { hdkey } from 'ethereumjs-wallet'
 import CryptoJS from 'crypto-js/core'
-import testnet from '../config/testnet'
+import testnet from '../configs/testnet'
 
 export const createWallet = (params: { chainId: number }) => {
   const { chainId } = params
