@@ -3,17 +3,17 @@ import { css, cx } from '@emotion/css'
 import { Wallet } from '../../types'
 
 const item = css`
-  // min-width: 15rem;
   padding: 0.8rem;
   margin: 1.4%;
   display: flex;
+  flex: 45%;
   flex-direction: column;
   border-radius: 1rem;
   border: 1px solid var(--color-outline);
   background-color: var(--color-underground);
 
   &:hover {
-    background-color: var(--color-dark);
+    background-color: var(--color-underground-hover);
   }
 `
 
