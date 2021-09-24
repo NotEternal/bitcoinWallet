@@ -1,13 +1,13 @@
 import bip39 from 'bip39'
 import { hdkey } from 'ethereumjs-wallet'
 import CryptoJS from 'crypto-js/core'
-import testnet from '../configs/testnet'
+import * as configs from '../configs'
 
 export const createWallet = (params: { chainId: number }) => {
   const { chainId } = params
 
-  if (testnet[chainId]) {
-    const { web3 } = testnet[chainId]
+  if (configs.blockchains[chainId]) {
+    const { web3 } = configs.blockchains[chainId]
 
     // todo: + entropy
     const mnemonic = bip39.generateMnemonic()

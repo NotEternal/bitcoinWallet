@@ -14,3 +14,9 @@ export interface Wallets {
 export interface Store {
   wallets: Wallets
 }
+
+export interface BlockchainData {
+  name: string
+  explorer: string
+  web3: any // todo
+}
