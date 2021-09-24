@@ -23,8 +23,6 @@ const parameter = css`
 `
 
 export default function Item(props: { walletData: Wallet }): JSXElement {
-  const { walletData } = props
-
   // TODO:
   // balance
   // buttons:
@@ -33,9 +31,13 @@ export default function Item(props: { walletData: Wallet }): JSXElement {
 
   return (
     <div class={cx(item)}>
-      <span class={cx(parameter)}>Address: {walletData.address}</span>
-      <span class={cx(parameter)}>Public key: {walletData.publicKey}</span>
-      <span class={cx(parameter)}>Private key: {walletData.privateKey}</span>
+      <span class={cx(parameter)}>Address: {props.walletData.address}</span>
+      <span class={cx(parameter)}>
+        Public key: {props.walletData.publicKey}
+      </span>
+      <span class={cx(parameter)}>
+        Private key: {props.walletData.privateKey}
+      </span>
     </div>
   )
 }

@@ -4,7 +4,7 @@ import { createStore } from 'solid-js/store'
 import { css, cx } from '@emotion/css'
 import { Store } from './types'
 import Header from './components/Header'
-import Wallet from './pages/Wallet'
+import Wallets from './pages/Wallets'
 
 const app = css`
   min-height: 100vh;
@@ -17,32 +17,7 @@ const main = css`
 `
 
 const initialStore: Store = {
-  wallets: {
-        asd1ug1u2g12g3123h: {
-      chainId: 1,
-      address: 'kg234gl23g4lk2134g3',
-      publicKey: 'kg234gl23g4lk2134g3',
-      privateKey: 'kg234gl23g4lk2134g3',
-    },
-    asd1ugsdf1u2g12g3123h: {
-      chainId: 1,
-      address: 'kg234gl23g4lk2134g3',
-      publicKey: 'kg234gl23g4lk2134g3',
-      privateKey: 'kg234gl23g4lk2134g3',
-    },
-    asd1ugsdf1u2g1122g3123h: {
-      chainId: 1,
-      address: 'kg234gl23g4lk2134g3',
-      publicKey: 'kg234gl23g4lk2134g3',
-      privateKey: 'kg234gl23g4lk2134g3',
-    },
-    asd1u2134g1u2g12g3123h: {
-      chainId: 1,
-      address: 'kg234gl23g4lk2134g3',
-      publicKey: 'kg234gl23g4lk2134g3',
-      privateKey: 'kg234gl23g4lk2134g3',
-    }
-  },
+  wallets: {},
 }
 
 function App(): JSXElement {
@@ -58,7 +33,7 @@ function App(): JSXElement {
         <Header />
 
         <main class={cx(main)}>
-          <Wallet wallets={state.wallets} />
+          <Wallets stateWallets={state.wallets} />
         </main>
       </ErrorBoundary>
     </div>
