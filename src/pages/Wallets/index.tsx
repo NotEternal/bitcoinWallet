@@ -77,10 +77,7 @@ export default function Wallets(props: {
       </div>
 
       <Show when={getShowModal()}>
-        <NewWalletModal
-          getWallet={getWallet}
-          close={() => setShowModal(false)}
-        />
+        <NewWalletModal getWallet={getWallet} close={hideModal} />
       </Show>
     </section>
   )
