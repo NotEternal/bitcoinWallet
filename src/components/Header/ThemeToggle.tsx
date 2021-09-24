@@ -9,7 +9,15 @@ const themeButton = css`
 
 export default function ThemeToggle(): JSXElement {
   const [getIsDark, setIsDark] = createSignal(true)
-  const switchTheme = () => setIsDark(!getIsDark())
+  const switchTheme = () => {
+    setIsDark(!getIsDark())
+
+    if (getIsDark()) {
+      document.body.classList.remove('light')
+    } else {
+      document.body.classList.add('light')
+    }
+  }
 
   return (
     <button onClick={switchTheme} class={cx(themeButton)}>
