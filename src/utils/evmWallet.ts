@@ -7,7 +7,7 @@ export const createWallet = (params: { chainId: number }) => {
   const { chainId } = params
 
   if (configs.blockchains[chainId]) {
-    const { web3 } = configs.blockchains[chainId]
+    const { provider } = configs.blockchains[chainId]
 
     // todo: + entropy
     const mnemonic = bip39.generateMnemonic()
@@ -17,9 +17,9 @@ export const createWallet = (params: { chainId: number }) => {
     const wallet = hdWallet.derivePath(`m/44'/60'/0'/0/0`).getWallet()
     const publicKey = wallet.getPublicKey()
     const privateKey = wallet.getPrivateKey()
-    const account = web3.eth.accounts.privateKeyToAccount(
-      `0x${privateKey.toString('Hex')}`
-    )
+    // const account = provider.eth.accounts.privateKeyToAccount(
+    //   `0x${privateKey.toString('Hex')}`
+    // )
 
     return {
       mnemonic,
@@ -28,9 +28,9 @@ export const createWallet = (params: { chainId: number }) => {
         address: `0x${wallet.getAddress().toString('Hex')}`,
         publicKey: `0x${publicKey.toString('Hex')}`,
         privateKey: `0x${privateKey.toString('Hex')}`,
-        signTransaction: account.signTransaction,
-        sign: account.sign,
-        // encrypt: account.encrypt
+        // signTransaction: account.signTransaction,
+        // sign: account.sign,
+        // encrypt: account.encrypt,
       },
     }
   } else {

@@ -25,13 +25,10 @@ const message = css`
   margin: 0;
 `
 
-const createButton = css`
+const creationButton = css`
   margin-top: 1rem;
-  padding: 0.3rem 0.8rem;
   border: none;
-  border-radius: 0.6rem;
-  color: var(--color-headline);
-  background-color: var(--color-special);
+  background-color: var(--color-brand);
 `
 
 export default function Wallets(props: {
@@ -62,7 +59,7 @@ export default function Wallets(props: {
         ) : (
           <div class={cx(noWallets)}>
             <p class={cx(message)}>You have no wallets</p>
-            <button class={cx(createButton)} onClick={showModal}>
+            <button class={cx(creationButton)} onClick={showModal}>
               Create a wallet
             </button>
           </div>

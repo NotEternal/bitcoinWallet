@@ -24,7 +24,7 @@ injectGlobal`
     --color: #94a1b2;
     --color-headline: #fffffe;
     --color-secondary: #72757e;
-    --color-brand: #e53170;
+    --color-brand: #ef4565;
     --color-special: #3da9fc;
     --color-outline: #212121;
     --color-underground: rgba(0, 0, 0, 0.35);
@@ -82,7 +82,13 @@ injectGlobal`
 
   button {
     user-select: none;
-    transition: .2s;
+    padding: 0.3rem 0.8rem;
+    border-radius: 0.6rem;
+    border: 1px solid var(--color-outline);
+    letter-spacing: .07rem;
+    color: var(--color-headline);
+    background-color: transparent;
+    transition: .18s;
   }
 
   code {
