@@ -1,4 +1,4 @@
-import { JSXElement, createSignal } from 'solid-js'
+import { JSXElement, createSignal, createEffect } from 'solid-js'
 import { css, cx } from '@emotion/css'
 
 const themeButton = css`
@@ -7,8 +7,13 @@ const themeButton = css`
   font-size: 2.2rem;
 `
 
-export default function ThemeToggle(): JSXElement {
+export default function ThemeToggle(props: {
+  isDark: (a: boolean) => void
+}): JSXElement {
   const [getIsDark, setIsDark] = createSignal(true)
+
+  createEffect(() => props.isDark(getIsDark()))
+
   const switchTheme = () => {
     setIsDark(!getIsDark())
 

@@ -5,13 +5,6 @@ import * as types from '../../types'
 import NewWalletModal from '../../components/NewWalletModal'
 import Item from './Item'
 
-const wallet = css`
-  padding: 1.2rem;
-  border-radius: 1.5rem;
-  border: 1px solid var(--color-outline);
-  box-shadow: 0 0.1rem 0.6em var(--color-shadow);
-`
-
 const title = css`
   margin: 0;
   margin-bottom: 1.4rem;
@@ -55,7 +48,7 @@ export default function Wallets(props: {
   }
 
   return (
-    <section class={cx(wallet)}>
+    <section>
       <h2 class={cx(title)}>Your wallets</h2>
 
       <div class={cx(walletsWrapper)}>
