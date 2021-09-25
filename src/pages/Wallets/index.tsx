@@ -5,13 +5,6 @@ import * as types from '../../types'
 import NewWalletModal from '../../components/NewWalletModal'
 import Item from './Item'
 
-const wallet = css`
-  padding: 1.2rem;
-  border-radius: 1.5rem;
-  border: 1px solid var(--color-outline);
-  box-shadow: 0 0.1rem 0.6em var(--color-shadow);
-`
-
 const title = css`
   margin: 0;
   margin-bottom: 1.4rem;
@@ -32,13 +25,10 @@ const message = css`
   margin: 0;
 `
 
-const createButton = css`
+const creationButton = css`
   margin-top: 1rem;
-  padding: 0.3rem 0.8rem;
   border: none;
-  border-radius: 0.6rem;
-  color: var(--color-headline);
-  background-color: var(--color-special);
+  background-color: var(--color-brand);
 `
 
 export default function Wallets(props: {
@@ -55,7 +45,7 @@ export default function Wallets(props: {
   }
 
   return (
-    <section class={cx(wallet)}>
+    <section>
       <h2 class={cx(title)}>Your wallets</h2>
 
       <div class={cx(walletsWrapper)}>
@@ -69,7 +59,7 @@ export default function Wallets(props: {
         ) : (
           <div class={cx(noWallets)}>
             <p class={cx(message)}>You have no wallets</p>
-            <button class={cx(createButton)} onClick={showModal}>
+            <button class={cx(creationButton)} onClick={showModal}>
               Create a wallet
             </button>
           </div>

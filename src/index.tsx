@@ -20,11 +20,12 @@ injectGlobal`
 
   body {
     --color-background: #111111;
+    --color-background-transparent: #11111199;
     --color: #94a1b2;
     --color-headline: #fffffe;
     --color-secondary: #72757e;
-    --color-brand: #7f5af0;
-    --color-special: #2cb67d;
+    --color-brand: #ef4565;
+    --color-special: #3da9fc;
     --color-outline: #212121;
     --color-underground: rgba(0, 0, 0, 0.35);
     --color-shadow: #090909;
@@ -49,12 +50,11 @@ injectGlobal`
 
   body.light {
     --color-background: #fffffe;
+    --color-background-transparent: #fffffe99;
     --color: #5e6671;
     --color-headline: #111111;
     --color-secondary: #72757e;
-    --color-brand: #7f5af0;
-    --color-special: #2cb67d;
-    --color-outline: #d3d3d3;
+    --color-outline: #dfdfdf;
     --color-underground: #dedede59;
     --color-shadow: #dfdfdf;
     --color-underground-hover: #dedede91;
@@ -82,7 +82,13 @@ injectGlobal`
 
   button {
     user-select: none;
-    transition: .2s;
+    padding: 0.3rem 0.8rem;
+    border-radius: 0.6rem;
+    border: 1px solid var(--color-outline);
+    letter-spacing: .07rem;
+    color: var(--color-headline);
+    background-color: transparent;
+    transition: .18s;
   }
 
   code {

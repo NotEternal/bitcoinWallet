@@ -18,5 +18,5 @@ export interface Store {
 export interface BlockchainData {
   name: string
   explorer: string
-  web3: any // todo
+  provider: any // todo
 }

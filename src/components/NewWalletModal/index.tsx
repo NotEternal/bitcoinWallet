@@ -1,12 +1,13 @@
 import type { JSXElement } from 'solid-js'
-import { For, createSignal } from 'solid-js'
+import { For } from 'solid-js'
 import { css, cx } from '@emotion/css'
 import * as configs from '../../configs'
 import * as constants from '../../constants'
 import * as types from '../../types'
+import { createWallet } from '../../utils/evmWallet'
 
 const overlay = css`
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
@@ -36,17 +37,24 @@ const optionsWrapper = css`
   max-width: 36rem;
   display: flex;
   flex-wrap: wrap;
+  border-radius: 0.8rem;
 `
 
 const chainInfo = css`
   flex: 43%;
+  display: flex;
+  flex-direction: column;
   margin: 0.2rem;
-  padding: 0.6rem;
+  padding: 1rem;
   border-radius: 0.6rem;
-  border: 1px solid var(--color-outline);
+  background: var(--color-underground);
 
   .name {
     margin: 0;
+  }
+
+  .creationButton {
+    margin-top: 0.6rem;
   }
 `
 
@@ -54,7 +62,11 @@ export default function NewWalletModal(props: {
   getWallet: (newWallet: types.Wallet) => void
   close: () => void
 }): JSXElement {
-  const [getChainId, setChainId] = createSignal(-1)
+  const startCreation = (chainId: number) => {
+    const newWallet = createWallet({ chainId })
+
+    console.log('newWallet: ', newWallet)
+  }
 
   return (
     <section class={cx(overlay)}>
@@ -70,6 +82,8 @@ export default function NewWalletModal(props: {
           {Object.values(constants.blockchains).length ? (
             <For each={Object.values(constants.blockchains)}>
               {(chainId) => {
+                if (!configs.blockchains[chainId]) return null
+
                 const { name, explorer } = configs.blockchains[chainId]
 
                 return (
@@ -78,7 +92,12 @@ export default function NewWalletModal(props: {
                     <a href={explorer} target="_blank">
                       Explorer
                     </a>
-                    <button>Create</button>
+                    <button
+                      class="creationButton"
+                      onClick={() => startCreation(chainId)}
+                    >
+                      Create
+                    </button>
                   </div>
                 )
               }}
